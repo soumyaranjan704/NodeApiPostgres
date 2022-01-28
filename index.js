@@ -1,9 +1,7 @@
 
-// var express = require('express'); => Requires the Express module just as you require other modules and puts it in a variable.
- //var app = express(); => Calls the express function "express()" and puts new 
-// Express application inside the app variable (to start a new Express application)
 
-const express = require('express')
+const express = require('express')// Express module just as you require other modules and puts it in a variable. var app = express(); => Calls the express function "express()" and puts new Express application inside the app variable (to start a new Express application)
+
 const app = express()
 const port = 5000  // server will run on this port
 var cors = require('cors');  // used for cors error
@@ -17,9 +15,9 @@ const connectionString = 'postgres://postgres:123Max1234@localhost:5432/NodeData
  
 
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(logger('dev')); // using nodemon (server will run automatically if any changes)
+app.use(express.json()); //express. json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code: app
+app.use(express.urlencoded({ extended: false })); //handle the bookid null
 
 
 

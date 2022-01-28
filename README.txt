@@ -21,6 +21,20 @@ Server Wii run on this command :
 If you use nodemon then server will automatically refresh when you change anything and also it will show the error on your terminal.
  npm run dev
 
+Note: Posgresql is the another application 
+
+PosgreSql Installation Process:
+
+1.Install pgAdmin 4 (PostgreSql)  
+Follow this link for compelete installation process : https://www.youtube.com/watch?v=C93Ed8b8Mhc
+
+2.Click on this link and download the latest version of postgresql
+https://www.pgadmin.org/download/pgadmin-4-windows/
+
+--I will add one more sql file for understanding how to create table and insert the data 
+
+--If any issue with this then goto images file for  better understanding
+
 OUTPUT:
 
 check on browser http://localhost:5000/api

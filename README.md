@@ -43,6 +43,20 @@ Node to Posgres Connection:
 https://medium.com/@dannibla/connecting-nodejs-postgresql-f8967b9f5932
 
 
-This endpoint gives you local data fetch from database(postgresql)
-http://localhost:5000/emp
+Different Endpoints:
+
+ GET- http://localhost:5000/emp
+
+ POST-http://localhost:5000/emp
+
+ PUT-http://localhost:5000/emp/9
+
+ DELETE-http://localhost:5000/emp/3
+
+ Check this endpoints in POSTMAN : ADD HEADERS
+
+ KEY :             VALUE:
+
+ Content-Type     application/json
+ Referer          http://localhost:5000/
 

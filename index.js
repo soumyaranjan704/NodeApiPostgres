@@ -12,7 +12,8 @@ const { Client } = require('pg');
 
                             //Potocol  DB user   password   host          databasename
 const connectionString = 'postgres://postgres:123Max1234@localhost:5432/NodeData';
- 
+ const request = require('request') 
+
 
 
 app.use(logger('dev')); // using nodemon (server will run automatically if any changes)
@@ -39,9 +40,62 @@ app.get('/emp', function (req, res, next) {
 });
 
 
+//***************POST REQUEST TO DATABASE************************ */
+
+app.post('/emp', function (req, res, next)  {
+    const { id, name,rollnumber } = req.body
+      client.query('INSERT INTO Employee (id, name,rollnumber) VALUES ($1, $2,$3)', [id, name,rollnumber], (error, results) => {
+      if (error) {
+        console.log(err);
+        res.status(400).send(err);
+      }
+      res.status(200).send(`New User added `)
+      
+
+    })
+  });
 
 
 
+
+//******************************************** */
+
+
+
+//************************UPDATE*****************************
+app.put('/emp/:id', function (req, res) {
+    const { id } = req.params;
+    const { name, rollnumber } = req.body
+    client.query(
+        'UPDATE Employee SET id = $1, name = $2 ,rollnumber = $3 WHERE id = $1', [id, name, rollnumber], (error, results) => {
+
+            if (error) {
+                console.log(err);
+                res.status(400).send(err);
+            }
+            res.status(200).send(`Updated `)
+        }
+    );
+});
+
+//***************************************** */
+
+
+//******************************DELETE***************** */
+
+app.delete('/emp/:id', function (req, res) {
+    const { id } = req.params;
+
+    client.query("DELETE FROM Employee WHERE id = $1", [id], (error, results) => {
+        if (error) {
+            console.log(error);
+            res.status(400).send(error);
+        }
+        res.status(200).send(`Data Deleted Successfully `)
+    });
+});
+
+//********************************************** */
 
 
 //IGNORE
